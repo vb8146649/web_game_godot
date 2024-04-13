@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cdarqc6kgcq1v"]
+
+[node name="End" type="CanvasLayer"]
+process_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 376.0
+offset_top = 264.0
+offset_right = 704.0
+offset_bottom = 416.0
+theme_override_font_sizes/font_size = 50
+text = "RESTART"

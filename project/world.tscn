@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://beng2x5e01yk8"]
+
+[ext_resource type="PackedScene" uid="uid://c6rgd4sdojldw" path="res://parallax_background.tscn" id="1_l2cyc"]
+[ext_resource type="Script" path="res://world.gd" id="1_lcv2s"]
+[ext_resource type="PackedScene" uid="uid://c3v0jvxleqqh5" path="res://player.tscn" id="2_rqrp2"]
+[ext_resource type="PackedScene" uid="uid://fvc37xnan1dx" path="res://menu.tscn" id="2_rtqja"]
+[ext_resource type="PackedScene" uid="uid://cl1nl1mp5g7c6" path="res://ground.tscn" id="3_01jrr"]
+[ext_resource type="PackedScene" uid="uid://cdarqc6kgcq1v" path="res://end.tscn" id="6_y6v0i"]
+[ext_resource type="AudioStream" uid="uid://bptf2ff2o1o10" path="res://assets/sound/Sakura-Girl-Beach-chosic.com_.mp3" id="8_874m4"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_lcv2s")
+
+[node name="Menu" parent="." instance=ExtResource("2_rtqja")]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_l2cyc")]
+
+[node name="player" parent="." instance=ExtResource("2_rqrp2")]
+position = Vector2(120, 552)
+
+[node name="background_music" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("8_874m4")
+
+[node name="ground" parent="." instance=ExtResource("3_01jrr")]
+position = Vector2(1152, 688)
+
+[node name="enemy_respawn" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="End" parent="." instance=ExtResource("6_y6v0i")]
+
+[connection signal="timeout" from="enemy_respawn" to="." method="_on_enemy_respawn_timeout"]
