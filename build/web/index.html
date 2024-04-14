@@ -136,9 +136,13 @@ body {
 		</div>
 		<script>
 			window.onload = function() {
-				var width = 648; // Set the desired width in pixels
-				var height = 1152; // Set the desired height in pixels
-				window.resizeTo(width, height);
+				var width = 800; // Set the desired width in pixels
+				var height = 600; // Set the desired height in pixels
+				var newWindow = window.open('', '', 'width=' + width + ',height=' + height);
+				var canvas = document.createElement('canvas');
+				canvas.width = width;
+				canvas.height = height;
+				newWindow.document.body.appendChild(canvas);
 			}
 		</script>
 		<script src="index.js"></script>
