@@ -208,7 +208,8 @@ texture_filter = 1
 position = Vector2(0, -1.844)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_60jdw")
-animation = &"damage"
+animation = &"run"
+frame_progress = 0.525935
 
 [node name="run" type="CollisionShape2D" parent="."]
 position = Vector2(10.75, -1.5)
@@ -237,4 +238,7 @@ pitch_scale = 0.82
 stream = ExtResource("4_5f7ao")
 volume_db = 5.943
 
+[node name="speed" type="Timer" parent="."]
+
 [connection signal="timeout" from="damage_time" to="." method="_on_damage_time_timeout"]
+[connection signal="timeout" from="speed" to="." method="_on_speed_timeout"]

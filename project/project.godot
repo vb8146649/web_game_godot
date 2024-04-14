@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 
+[display]
+
+window/size/resizable=false
+
+[editor]
+
+movie_writer/movie_file="C:/Users/shweta/Desktop/GODOT/movie/movie.avi"
+
 [input]
 
 jump={

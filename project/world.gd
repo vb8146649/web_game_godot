@@ -14,6 +14,9 @@ var obs_array:=[rock,barrel,stump,bird]
 var background_music
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	highscore = int(highscore_r())
+	obs_num=1
+	$Menu/high_score.text="HIGH SCORE: "+str(highscore)
 	$End.hide()
 	screen_size = get_window().size
 	$End/Button.pressed.connect(_ready)
@@ -36,7 +39,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print($player.position.x-$ground.position.x)
-	if Input.is_action_just_pressed("enter"):
+	if Input.is_action_just_pressed("jump"):
 		get_node("player").game_on=true
 		$Menu/play.hide()
 		$enemy_respawn.start()
@@ -89,10 +92,24 @@ func damage(body):
 func game_over():
 	if Global.game_over==true:
 		$enemy_respawn.stop()
+		$player/speed.stop()
 		#$game_over.play()
 		if int(Global.score)>highscore:
 			highscore=int(Global.score)
+			highscore_w()
 			$Menu/high_score.text="HIGH SCORE: "+str(highscore)
 		get_tree().paused=true
 		#$game_over.play()
 		$End.show()
+
+func highscore_r():
+	var file = FileAccess.open("res://highscore.js",FileAccess.READ)
+	var json = JSON.new()
+	var json_str = file.get_as_text()
+	file.close()
+	return json.parse_string(json_str)
+
+func highscore_w():
+	var file = FileAccess.open("res://highscore.js",FileAccess.WRITE)
+	file.store_string(str(highscore))
+	file.close()

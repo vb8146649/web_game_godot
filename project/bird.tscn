@@ -89,7 +89,3 @@ animation = &"fly"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.571428, -10.1429)
 shape = SubResource("CircleShape2D_ad4gf")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-4.57143, -9.14286)
-polygon = PackedVector2Array(-1.14286, -4.57143, -10.2857, -2.28571, -10.2857, 3.42857, -8, 1.14286, -1.14286, 2.86102e-06)
