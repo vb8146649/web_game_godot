@@ -134,7 +134,13 @@ body {
 			</div>
 			<div id="status-notice" class="godot" style="display: none;"></div>
 		</div>
-
+		<script>
+			window.onload = function() {
+				var width = 648; // Set the desired width in pixels
+				var height = 1152; // Set the desired height in pixels
+				window.resizeTo(width, height);
+			}
+		</script>
 		<script src="index.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":7910064,"index.wasm":35649444},"focusCanvas":true,"gdextensionLibs":[]};
